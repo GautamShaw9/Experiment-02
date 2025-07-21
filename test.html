@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Version Control UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    .button {
+      background-color: #2ea44f;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #22863a;
+    }
+    .output {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>GitHub Version Control UI</h1>
+
+  <button class="button" onclick="simulate('clone')">Clone</button>
+  <button class="button" onclick="simulate('pull')">Pull</button>
+  <button class="button" onclick="simulate('push')">Push</button>
+  <button class="button" onclick="simulate('fetch')">Fetch</button>
+
+  <div class="output" id="outputBox">Click a button to simulate a Git command.</div>
+
+  <script>
+    function simulate(action) {
+      const commands = {
+        clone: 'git clone https://github.com/username/repo.git',
+        pull: 'git pull origin master',
+        push: 'git push origin master',
+        fetch: 'git fetch && git merge origin/master'
+      };
+      document.getElementById('outputBox').innerText = `Simulated Command:\n${commands[action]}`;
+    }
+  </script>
+
+</body>
+</html>
